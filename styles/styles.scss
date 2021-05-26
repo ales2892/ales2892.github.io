@@ -1,0 +1,353 @@
+@import './variables';
+@import './mixins';
+@import './header';
+@import './episodios';
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+/*Estilo titulos*/
+h1{
+    @include titulos(36px);
+
+    &::after{
+        content:".";   
+    }
+
+    @media screen and (min-width: $break-point){
+        @include titulos(64px);
+
+        &::after{
+            color: $azul3;
+        }   
+    }
+}
+
+h2{
+    @include titulos(36px);
+
+    @media screen and (min-width: $break-point){
+        @include titulos(48px);
+    }
+}
+
+/*Estilo sección principal*/
+.seccion1{
+    margin-left:16px;
+    padding-top: 29px;
+
+    span{
+        text-decoration: 2.5px line-through;
+    }
+
+    p{
+        @include parrafo (14px, $line-height-cuerpo);
+        margin-top:16px;
+    }
+    
+    /*parrafo version desktop*/
+    .alternativo{
+        display: none;
+    }
+
+    .button{
+        display:block;
+        padding:13px 96px;
+        margin-top:36px;
+        margin-bottom:24px;
+        @include boton;
+        
+    }
+    
+    /*Estilo desktop*/
+    @media screen and (min-width: $break-point){
+        margin-left:12%;
+        padding-top: 120px;
+
+        span{
+            font-size: 64px;   
+        }
+
+        br{
+            display: none;
+        }
+
+        .introduccion-mobile{
+            display:none;
+        }
+
+        .alternativo{
+            @include parrafo(16px,$line-height-cuerpo-desktop);
+            margin-top:0px;
+            padding-top: 10px;
+            padding-bottom: 56px;
+            display: block;
+            width: 628px;  
+        }
+
+        .button{
+            @include boton-desktop(226px);
+            margin-top: 0;
+            margin-bottom: 5px;
+            padding:16px 59px;
+
+        }
+    }
+}
+
+
+/*Estilos sección de donde venimos*/
+
+
+.seccion3{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: center;
+
+    .contenedor-imagen{
+        margin-top:-95.5px;
+        z-index: 1;
+        width: 360px;
+        height: 519px;
+    }
+
+    img{
+        height:100%;
+        display: block;
+        margin: auto; 
+    }
+
+    .contenido{
+        margin-top:27px;
+        margin-bottom:54px;
+        margin-left:16px;
+        width:90%;
+    }
+    
+    h2{
+        margin-bottom:8px;
+        
+    }
+
+    p{
+        @include parrafo(14px, $line-height-cuerpo);
+        margin-bottom:16px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    /*Estilo desktop*/
+    @media screen and (min-width: $break-point){
+        
+        .contendor-imagen{
+            margin-top:-168.6px;
+            width: 457.6px;
+            height: 660px; 
+        }
+
+        .contenido{
+            margin-top:20.4px;
+            margin-bottom:245px;
+            margin-left:62.4px;
+            width:33%;
+        }
+
+        h2{
+            margin-bottom:24px;
+        }
+
+        p{
+            @include parrafo(16px, $line-height-cuerpo-desktop);
+        }
+    }
+      
+}
+
+/*Estilos sección invitados*/
+.seccion4{
+    margin-bottom: 48px;
+    
+    h2{
+        margin-left:16px;
+        margin-bottom: 14px;
+    }
+
+    .container-imagenes{
+        display:flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    img{
+        height:243px;
+        width:320px;
+        
+    }
+
+    /*Estilo desktop*/
+    @media screen and (min-width: $break-point){
+        margin-bottom: 64px;
+    
+    h2{
+        margin-left:12%;
+        margin-bottom: 36px;
+    }
+
+    img{
+        height:auto;
+        width:calc(100%/3);
+    }
+
+    }
+    
+}
+
+/*Inicio sección temas*/
+.seccion5{
+    h2{
+        margin-bottom:24px;
+        margin-left:16px;   
+    }
+    
+    .contenedor-icons{
+        display:flex;
+        flex-direction: column;
+
+    }
+
+    article{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 52px; 
+
+        &:first-of-type {
+            margin-bottom: 36px;
+        }
+
+        &:last-of-type {
+            margin-bottom: 42px;
+        }
+    }
+
+    img{
+        width: 104px;
+        height:104px;
+        margin-top: 13px;
+        margin-bottom: 13px;  
+    }
+
+    h3{
+        font-family: $titulos;
+        font-size:24px;
+        font-weight: 600;
+        text-align: center;
+        padding:0 20px;
+        
+    }
+
+    /*Estilo desktop*/
+    @media screen and (min-width: $break-point){
+
+        h2{
+            margin-bottom:56px;
+            margin-left:12%;
+        }
+        .contenedor-icons{
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        article{
+            width: 20%;
+            margin-bottom: 34px;
+        }
+
+        h3{
+            padding-top:16px;
+        }
+    }
+}
+
+/*inicio sección cierre*/
+.seccion6{
+    clip-path: polygon(0 10vw, 100% 0%, 100% 100%, 0 100%);
+    background: linear-gradient(225deg, $azul1 0%, $azul2 100%);
+    height:341px;
+    padding-top: 64px;
+
+    h2{
+        color:$white;
+        margin-left: 16px;
+        margin-bottom: 36px;
+        text-align: center; 
+    }
+
+    .button{
+        display:block;
+        margin:0 auto;
+        padding:13px 43px;
+        @include boton;
+    }
+
+    /*Estilo desktop*/
+    @media screen and (min-width: $break-point){
+        height:518px;
+        padding-top: 213px;
+
+        .button{
+            @include boton-desktop(345px);
+            padding:16px 59px;
+        }  
+    }
+    
+}
+
+/*Footer*/
+footer{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+    margin-bottom: 31px;
+
+    p{
+        @include parrafo(14px, $line-height-cuerpo);
+        margin-bottom: 16px;
+    }
+
+    i{
+        font-size: 16px;
+        color: $color-letra;
+        margin: 0 19px;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    /*Estilo desktop*/
+    @media screen and (min-width: $break-point){
+        justify-content: space-between;
+        padding:0 100px;
+        margin-top: 36px;
+
+        p{
+            @include parrafo(16px,28px);
+            margin-bottom:0;
+        }
+
+        i{
+            font-size: 18px;
+            margin: 0 18px;
+        }
+
+    }
+}

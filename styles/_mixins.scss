@@ -1,0 +1,67 @@
+@import './variables';
+
+@mixin titulos ($f) {
+    font-family: $titulos;
+    font-size: $f;
+    line-height: $line-height-titulos;
+    font-weight: 300;
+    color:$color-letra;
+}
+
+@mixin parrafo ($fs,$lh){
+    font-family: $cuerpo;
+    font-size: $fs;
+    line-height: $lh;
+    color:$color-letra;
+}
+
+
+/*Estilo botones*/
+@mixin boton{
+    
+    background-color: $turquesa;
+    width:288px;
+    height: 48px;
+    font-family: $cuerpo;
+    line-height: $line-height-cuerpo;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    color:$color-letra;
+
+    &:hover{
+        background: linear-gradient(225deg, $color-boton-1 0%, $color-boton-2 100%);
+        color:$white;
+    }
+}
+
+@mixin boton-desktop($w){
+    @include boton;
+   
+    width:$w;
+    height: 56px;
+    line-height: $line-height-cuerpo-desktop;
+    font-size: 18px;
+
+}
+
+@mixin vinculos{
+    text-decoration: none;
+
+    &:visited {
+        color:lightgray; 
+    }
+
+    &:hover{
+        color:$turquesa; 
+        text-decoration: 2px line-through;
+    }
+
+    &:active {
+        color:$color-link-1; 
+        text-decoration: 2px line-through;
+    }
+}
+
+
+

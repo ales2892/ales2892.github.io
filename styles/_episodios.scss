@@ -1,0 +1,50 @@
+@import './variables';
+@import './mixins';
+
+/*Estilos sección episodios*/
+.seccion2{
+    padding-top: 64px;
+    background: linear-gradient(225deg, $azul1 0%, $azul2 100%);
+    height: 1203.5px;
+    clip-path: polygon(0 10vw, 100% 0%, 100% calc(100% - 10vw), 0 100%);
+    
+    h2{
+        margin-left:16px;
+        color:$white;
+    }
+    
+    @media screen and (min-width: $break-point){
+        height:1042.6px;
+        padding-top: 186px;
+
+        h2{
+            margin-left:12%;
+
+        }
+    }
+ 
+}
+
+/*Episodios podcast*/
+.container-multimedia{
+    margin:21px 11px 0 11px;
+    display:grid;
+    grid-template-rows: repeat(4,225px);
+    grid-row-gap: 11px;
+        
+    .spotify{
+        border:0;
+        width: 100%;
+        height:232px;       
+    }
+    
+    @media screen and (min-width: $break-point){
+        margin:26px 100px 0 100px;
+        grid-template-rows: repeat(2,232px);
+        grid-template-columns: repeat(2, minmax(auto,584px));
+        grid-row-gap:72px;
+        grid-column-gap: calc(72/1240 * 100%);
+
+    } 
+        
+}    

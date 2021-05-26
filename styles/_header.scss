@@ -1,0 +1,138 @@
+@import './variables';
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 44px;
+
+    img{
+        margin-top: 10px;
+        margin-left: 16px;
+        height:24px;
+        width: 24px;
+    }
+
+    @media screen and (min-width: $break-point){
+        height: 80px;
+
+        img{
+            height:36px;
+            width: 36px; 
+            margin-top: 22px;
+            margin-left: 100px;
+        }
+    }
+
+}
+
+
+
+/*Menú hamburguesa*/
+
+.hmenu{
+    margin-top: 16px;
+    margin-right: 19px;
+    position:relative;
+
+    .menu{
+        position: absolute;
+        padding-top: 16px;
+        padding-left: 16px;
+        top:32px;
+        right: -20px;
+        background: $azul3;
+        display:none;
+        transition: width 2s ease;
+    }
+
+    ul{
+        list-style-type: none;
+    }
+
+    li{
+        font-family: $cuerpo;
+        line-height: 28px;
+        font-size: 16px;
+        margin-bottom:24px;
+    }
+
+    a{
+        @include vinculos;
+        color:$white;
+    }
+
+    .fa-bars,.fa-times{
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: 1;
+        font-size: 18px;
+    }
+
+    .fa-times{
+        opacity: 0;
+    }
+
+    input{
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+
+        &:checked{
+            &~.fa-bars{
+                display: none;
+            }
+            &~.fa-times{
+                opacity:1;
+            }
+
+            &~.menu{
+                width: 320px;
+                display:block; 
+            }
+        }
+    }
+
+    @media screen and (min-width: $break-point){
+        margin-top: 26px;
+        margin-right:100px;
+
+        input,.fa-bars,.fa-times{
+            display:none;
+        }
+        
+        .menu{
+            display: block;
+            right: 0;
+            top: 0;
+            padding:0;
+            background: $white;
+        }
+
+        ul{
+            display: flex;
+        }
+        li{
+            padding-left:48px;
+        }
+
+        a{
+            color:$color-letra;
+        }
+    }
+}
+
+
+
+
+
+
+
+
